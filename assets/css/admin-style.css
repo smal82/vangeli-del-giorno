@@ -1,0 +1,191 @@
+/**
+ * Stili per la pagina admin del plugin Vangeli del Giorno
+ */
+
+/* Tab navigation */
+.tab-content {
+    margin-top: 20px;
+}
+
+.tab-content.active {
+    display: block !important;
+}
+
+/* Calendario */
+.calendario-vangeli {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.calendario-vangeli th {
+    background: #f0f0f1;
+    padding: 12px;
+    text-align: center;
+    font-weight: 600;
+    border: 1px solid #ddd;
+    color: #555;
+}
+
+.calendario-vangeli td {
+    border: 1px solid #ddd;
+    padding: 0;
+    text-align: center;
+    vertical-align: middle;
+    height: 60px;
+    width: 14.28%; /* 100% / 7 giorni */
+}
+
+.calendario-vuoto {
+    background: #f9f9f9;
+}
+
+.calendario-giorno {
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.calendario-giorno:hover {
+    background: #e8f4f8;
+    transform: scale(1.05);
+}
+
+/* Verde = Vangelo E Santo presenti */
+.calendario-giorno.completo {
+    background: #d4edda;
+}
+
+.calendario-giorno.completo:hover {
+    background: #c3e6cb;
+}
+
+/* Giallo = Solo Santo presente */
+.calendario-giorno.solo-santo {
+    background: #fff3cd;
+}
+
+.calendario-giorno.solo-santo:hover {
+    background: #ffeaa7;
+}
+
+/* Celeste = Solo Vangelo presente */
+.calendario-giorno.solo-vangelo {
+    background: #5bbccd;
+}
+
+.calendario-giorno.solo-vangelo:hover {
+    background: #3a9fb0;
+}
+
+/* Rosso = Nessuno presente */
+.calendario-giorno.assente {
+    background: #f8d7da;
+}
+
+.calendario-giorno.assente:hover {
+    background: #f5c6cb;
+}
+
+/* Grigio = Data passata */
+.calendario-giorno.passato {
+    background: #f9f9f9;
+    cursor: default;
+    opacity: 0.6;
+}
+
+.calendario-giorno.passato:hover {
+    background: #f9f9f9;
+    transform: none;
+}
+
+.calendario-giorno.oggi {
+    border: 3px solid #0073aa;
+    font-weight: bold;
+}
+
+.calendario-giorno.selezionato {
+    border: 3px solid #0073aa;
+    font-weight: bold;
+}
+
+.giorno-numero {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    line-height: 60px;
+    font-size: 16px;
+}
+
+/* Dettaglio data */
+#dettaglio_data {
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Controlli calendario */
+#calendario-controlli {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+#calendario_mese_corrente {
+    min-width: 200px;
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .calendario-vangeli th,
+    .calendario-vangeli td {
+        padding: 8px;
+        font-size: 14px;
+    }
+    
+    .calendario-giorno {
+        height: 50px;
+    }
+    
+    .giorno-numero {
+        line-height: 50px;
+        font-size: 14px;
+    }
+    
+    #calendario-controlli {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* Avviso admin */
+.vangelo-cei-avviso {
+    border-left: 4px solid #ffb900;
+}
+
+/* Animazioni */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+.loading {
+    animation: pulse 1.5s ease-in-out infinite;
+}
